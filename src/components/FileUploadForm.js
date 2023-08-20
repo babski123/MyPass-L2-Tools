@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { VStack, Button, Text, Input, Select, Spinner, Center } from "@chakra-ui/react";
+import { VStack, Button, Text, Input, Select, Spinner, Center, Link, HStack, StackDivider } from "@chakra-ui/react";
 import { FiUpload } from "react-icons/fi";
 import Papa from "papaparse";
 import { getToken } from "../services/getToken";
@@ -278,6 +278,10 @@ const FileUploadForm = () => {
           View unsubscribers
         </Button>
       </VStack>
+      <HStack divider={<StackDivider borderColor='gray.300' />}>
+        <Link fontSize="sm" color="blue.500" href="https://github.com/babski123/yotpo-bulk-blacklist">GitHub</Link>
+        <Link fontSize="sm" color="blue.500" href="https://apidocs.yotpo.com/reference/about-unsubscribers">API Documentation</Link>
+      </HStack>
     </>
   );
 };
