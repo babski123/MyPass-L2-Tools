@@ -4,6 +4,9 @@ import * as ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
+import '@fontsource/rubik';
+import { ChakraProvider } from '@chakra-ui/react'
+import theme from './theme';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -11,7 +14,9 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <StrictMode>
     <ColorModeScript />
-    <App />
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider>
   </StrictMode>
 );
 

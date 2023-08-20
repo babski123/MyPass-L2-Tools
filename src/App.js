@@ -1,41 +1,21 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import { Center, Heading, Flex, Text, Divider, VStack } from '@chakra-ui/react';
+import FileUploadForm from './components/FileUploadForm';
+//import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
+    <Flex width={"100vw"} height={"100vh"} alignContent={"center"} justifyContent={"center"}>
+      <Center flexDirection={"column"}>
+        <VStack spacing={3}>
+          <Heading>Yotpo Bulk Unsubscriber/Resubscriber</Heading>
+          <Text>This tool will add/remove email addresses from the unsubscribers list via API in batches (150 per batch).</Text>
+          <Divider />
+          <Text fontSize={"sm"}>Upload a CSV file that list all the emails that have to be added/removed from unsubscribers list in one column</Text>
+          <FileUploadForm />
+        </VStack>
+      </Center>
+    </Flex>
   );
 }
 
