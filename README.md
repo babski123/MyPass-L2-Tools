@@ -48,3 +48,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## View Unsubscribers
 If you want to view the current unsubscribers, just enter the app key and secret key then click `View unsubscribers`
+
+## Live production
+https://babski123.github.io/yotpo-bulk-blacklist/
