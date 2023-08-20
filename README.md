@@ -40,3 +40,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 # Yotpo Bulk Blacklist
 
 ## How to use?
+1. Select a CSV file that contains the list of email addresses that you want to add/remove from the unsubscribers list (the CSV should only have 1 column)
+2. Enter the store's app key
+3. Enter the store's secret key
+4. Select an action (Unsubscribe/Resubscribe)
+5. Submit
+
+## View Unsubscribers
+If you want to view the current unsubscribers, just enter the app key and secret key then click `View unsubscribers`
