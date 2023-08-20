@@ -7,6 +7,7 @@ import { batchUnsubscribe, batchResubscribe } from "../services/unsubresub";
 import ConfirmModal from "./ConfirmModal";
 import ProgressModal from "./ProgressModal";
 import ResultsModal from "./ResultsModal";
+import UnsubscribersModal from "./UnsubscribersModal";
 
 const FileUploadForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -28,6 +29,7 @@ const FileUploadForm = () => {
   const [successCallsWithErr, setSuccessCallsWithErr] = useState([]);
   const [failedCalls, setFailedCalls] = useState([]);
   const fileInputRef = useRef(null);
+  const [isUnsubscribersModalOpen, setIsUnsubscribersModalOpen] = useState(false);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -187,6 +189,14 @@ const FileUploadForm = () => {
 
   return (
     <>
+      <UnsubscribersModal
+        isOpen={isUnsubscribersModalOpen}
+        modalData={{
+          appKey: appKey,
+          secretKey: secretKey
+        }}
+        setIsUnsubscribersModalOpen={setIsUnsubscribersModalOpen}
+      />
       <ResultsModal
         isOpen={isResultsModalOpen}
         modalData={{
@@ -194,6 +204,7 @@ const FileUploadForm = () => {
           success_calls_with_errors: successCallsWithErr,
           failed_calls: failedCalls
         }}
+        setIsResultsModalOpen={setIsResultsModalOpen}
       />
       <ProgressModal
         isOpen={isProgressModalOpen}
@@ -258,6 +269,13 @@ const FileUploadForm = () => {
           isDisabled={!selectedFile || !appKey || !secretKey}
         >
           Submit
+        </Button>
+        <Button
+          onClick={() => setIsUnsubscribersModalOpen(true)}
+          colorScheme="blue"
+          variant="outline"
+          isDisabled={!appKey || !secretKey}>
+          View unsubscribers
         </Button>
       </VStack>
     </>

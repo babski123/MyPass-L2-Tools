@@ -4,6 +4,7 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
+    ModalCloseButton,
     ModalBody,
     ModalFooter,
     HStack,
@@ -18,13 +19,19 @@ import { QuestionOutlineIcon } from "@chakra-ui/icons"
 import { JSONTree } from "react-json-tree";
 import { brewer } from "base16";
 
-const ResultsModal = ({ isOpen, modalData }) => {
+const ResultsModal = ({ isOpen, modalData, setIsResultsModalOpen }) => {
     return (
         <>
-            <Modal scrollBehavior="inside" size="2xl" isCentered isOpen={isOpen}>
+            <Modal
+                scrollBehavior="inside"
+                size="2xl"
+                isCentered
+                isOpen={isOpen}
+                onClose={() => setIsResultsModalOpen(false)}>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Results</ModalHeader>
+                    <ModalCloseButton />
                     <ModalBody>
                         <HStack spacing="1rem" justify="center" align="start" divider={<StackDivider borderColor='gray.200' />}>
                             <VStack>
