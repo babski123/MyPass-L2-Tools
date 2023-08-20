@@ -2,6 +2,7 @@
   "name": "yotpo-bulk-blacklist",
   "version": "0.1.0",
   "private": true,
+  "homepage": "ybb",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
     "@chakra-ui/react": "^2.8.0",
