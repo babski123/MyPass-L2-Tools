@@ -37,32 +37,17 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# Yotpo Bulk Blacklist
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## How to use?
+1. Select a CSV file that contains the list of email addresses that you want to add/remove from the unsubscribers list (the CSV should only have 1 column)
+2. Enter the store's app key
+3. Enter the store's secret key
+4. Select an action (Unsubscribe/Resubscribe)
+5. Submit
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## View Unsubscribers
+If you want to view the current unsubscribers, just enter the app key and secret key then click `View unsubscribers`
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Live production
+https://babski123.github.io/yotpo-bulk-blacklist/
