@@ -11,8 +11,10 @@ import {
     StackDivider,
     Box,
     Heading,
-    Button
+    Button,
+    Tooltip
 } from "@chakra-ui/react";
+import { QuestionOutlineIcon } from "@chakra-ui/icons"
 import { JSONTree } from "react-json-tree";
 import { brewer } from "base16";
 
@@ -27,7 +29,7 @@ const ResultsModal = ({ isOpen, modalData }) => {
                         <HStack spacing="1rem" justify="center" align="start" divider={<StackDivider borderColor='gray.200' />}>
                             <VStack>
                                 <Box>
-                                    <Heading as="h5" size="sm">Successful Calls</Heading>
+                                    <Heading as="h5" size="sm">Successful Calls <Tooltip label="These requests were successfully executed."><QuestionOutlineIcon /></Tooltip></Heading>
                                 </Box>
                                 <Box fontSize="small">
                                     <JSONTree hideRoot={false} data={modalData.success_calls} theme={brewer} invertTheme={true} />
@@ -35,7 +37,7 @@ const ResultsModal = ({ isOpen, modalData }) => {
                             </VStack>
                             <VStack>
                                 <Box>
-                                    <Heading as="h5" size="sm">Successful Calls with Errors</Heading>
+                                    <Heading as="h5" size="sm">Successful Calls with Errors <Tooltip label="These requests were successfully executed but returned an error on certain email addresses"><QuestionOutlineIcon /></Tooltip></Heading>
                                 </Box>
                                 <Box fontSize="small">
                                     <JSONTree hideRoot={false} data={modalData.success_calls_with_errors} theme={brewer} invertTheme={true} />
@@ -43,7 +45,7 @@ const ResultsModal = ({ isOpen, modalData }) => {
                             </VStack>
                             <VStack>
                                 <Box>
-                                    <Heading as="h5" size="sm">Failed Calls</Heading>
+                                    <Heading as="h5" size="sm">Failed Calls <Tooltip label="These requests have failed, it's either the server is down, or your connection is unstable"><QuestionOutlineIcon /></Tooltip></Heading>
                                 </Box>
                                 <Box fontSize="small">
                                     <JSONTree hideRoot={false} data={modalData.failed_calls} theme={brewer} invertTheme={true} />
