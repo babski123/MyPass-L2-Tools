@@ -1,19 +1,24 @@
 import React from 'react';
-import { Center, Heading, Flex, Text, Divider, VStack } from '@chakra-ui/react';
-import FileUploadForm from './components/FileUploadForm';
+import { Center, Heading, Flex, VStack, Stack } from '@chakra-ui/react';
+//import FileUploadForm from './components/FileUploadForm';
+import ClickableBox from './components/ClickableBox';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function App() {
   return (
-    <Flex width={"100vw"} height={"100vh"} alignContent={"center"} justifyContent={"center"}>
+    <Flex p="1em" width={"100vw"} height={"100vh"} alignContent={"center"} justifyContent={"center"}>
       <Center flexDirection={"column"}>
       <ColorModeSwitcher />
         <VStack spacing={3}>
-          <Heading>Yotpo Bulk Unsubscriber/Resubscriber</Heading>
-          <Text>This tool will add/remove email addresses from the unsubscribers list via API in batches (150 per batch).</Text>
-          <Divider />
-          <Text fontSize={"sm"}>Upload a CSV file that list all the emails that have to be added/removed from unsubscribers list in one column</Text>
-          <FileUploadForm />
+          <Heading>MyPass Global L2 Tools</Heading>
+          {/* <FileUploadForm /> */}
+          <Stack direction="row" flexWrap="wrap" marginTop="2em">
+            <ClickableBox boxDetails={{
+              link: "#",
+              linkText: "Check Watermarks Repetition",
+              linkDesc: "Identifies how many times a watermark has repeated"
+            }}/>
+          </Stack>
         </VStack>
       </Center>
     </Flex>
