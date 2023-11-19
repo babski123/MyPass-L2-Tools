@@ -11,12 +11,19 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ErrorPage from './components/ErrorPage';
+import WatermarksChecker from './routes/WatermarksChecker';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />
   },
+  {
+    path: "watermarks-check",
+    element: <WatermarksChecker />
+  }
 ]);
 
 const container = document.getElementById('root');

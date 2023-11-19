@@ -14,17 +14,17 @@ function App() {
           {/* <FileUploadForm /> */}
           <Stack direction="row" flexWrap="wrap" marginTop="2em">
             <ClickableBox boxDetails={{
-              link: "#",
+              link: "/watermarks-check",
               linkText: "Check Watermarks Repetition",
               linkDesc: "Identifies how many times watermarks were repeated in a certain Kibana JSON log"
             }} />
             <ClickableBox boxDetails={{
-              link: "#",
+              link: "/bhp-simulation",
               linkText: "BHP Simulation",
               linkDesc: "A simulation of BHP's Integration with MyPass"
             }} />
             <ClickableBox boxDetails={{
-              link: "#",
+              link: "/lh-simulation",
               linkText: "Lighthouse Simulation",
               linkDesc: "A simulation of INPEX's integration with MyPass (Lighthouse)"
             }} />
