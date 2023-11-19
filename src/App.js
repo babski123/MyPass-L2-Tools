@@ -8,7 +8,7 @@ function App() {
   return (
     <Flex p="1em" width={"100vw"} height={"100vh"} alignContent={"center"} justifyContent={"center"}>
       <Center flexDirection={"column"}>
-      <ColorModeSwitcher />
+        <ColorModeSwitcher />
         <VStack spacing={3}>
           <Heading>MyPass Global L2 Tools</Heading>
           {/* <FileUploadForm /> */}
@@ -16,8 +16,18 @@ function App() {
             <ClickableBox boxDetails={{
               link: "#",
               linkText: "Check Watermarks Repetition",
-              linkDesc: "Identifies how many times a watermark has repeated"
-            }}/>
+              linkDesc: "Identifies how many times watermarks were repeated in a certain Kibana JSON log"
+            }} />
+            <ClickableBox boxDetails={{
+              link: "#",
+              linkText: "BHP Simulation",
+              linkDesc: "A simulation of BHP's Integration with MyPass"
+            }} />
+            <ClickableBox boxDetails={{
+              link: "#",
+              linkText: "Lighthouse Simulation",
+              linkDesc: "A simulation of INPEX's integration with MyPass (Lighthouse)"
+            }} />
           </Stack>
         </VStack>
       </Center>
