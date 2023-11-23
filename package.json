@@ -1,6 +1,7 @@
 {
   "name": "myp-l2-tools",
   "version": "0.1.0",
+  "homepage": "https://babski123.github.io/mypass-l2-tools/",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
