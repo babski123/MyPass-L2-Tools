@@ -7,6 +7,24 @@ import * as serviceWorker from './serviceWorker';
 import '@fontsource/rubik';
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from './theme';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import ErrorPage from './components/ErrorPage';
+import WatermarksChecker from './routes/WatermarksChecker';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "watermarks-check",
+    element: <WatermarksChecker />
+  }
+]);
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -15,7 +33,7 @@ root.render(
   <StrictMode>
     <ColorModeScript />
     <ChakraProvider theme={theme}>
-      <App />
+      <RouterProvider router={router} />
     </ChakraProvider>
   </StrictMode>
 );

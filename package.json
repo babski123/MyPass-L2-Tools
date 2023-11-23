@@ -1,8 +1,8 @@
 {
-  "name": "yotpo-bulk-blacklist",
+  "name": "myp-l2-tools",
   "version": "0.1.0",
+  "homepage": "https://babski123.github.io/MyPass-L2-Tools/",
   "private": true,
-  "homepage": "https://babski123.github.io/yotpo-bulk-blacklist",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
     "@chakra-ui/react": "^2.8.0",
@@ -15,13 +15,17 @@
     "@testing-library/user-event": "^14.4.3",
     "base16": "^1.0.0",
     "framer-motion": "^6.5.1",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^3.11.0",
     "react-json-tree": "^0.18.0",
     "react-lorem-component": "^0.13.0",
+    "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
+    "sort-by": "^1.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -48,6 +52,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.0.0"
+    "gh-pages": "^6.1.0"
   }
 }
