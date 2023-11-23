@@ -24,10 +24,8 @@ export default function NotFound() {
 
       <Button as="a"
         href="/"
-        colorScheme="teal"
-        color="white"
         variant="solid">
-        Go to Home
+        Home
       </Button>
     </Box>
   )
