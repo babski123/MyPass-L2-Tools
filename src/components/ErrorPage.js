@@ -1,5 +1,6 @@
 import { useRouteError } from "react-router-dom";
 import { Box, Heading, Text, Button } from '@chakra-ui/react'
+import config from "../config";
 
 export default function NotFound() {
 
@@ -23,7 +24,7 @@ export default function NotFound() {
       </Text>
 
       <Button as="a"
-        href="/"
+        href={config.rootURL}
         variant="solid">
         Home
       </Button>
