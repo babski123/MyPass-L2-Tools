@@ -22,10 +22,10 @@ export default function NotFound() {
         Sorry, an unexpected error has occurred.
       </Text>
 
-      <Link as="a"
+      <Link className="hoverable-link" as="a"
         to="/"
         variant="solid">
-        Home
+        HOME
       </Link>
     </Box>
   )

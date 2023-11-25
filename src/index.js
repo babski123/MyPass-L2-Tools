@@ -1,15 +1,13 @@
 import { ColorModeScript, ChakraProvider } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
+import './index.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import '@fontsource/rubik';
 import theme from './theme';
-import {
-  createHashRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from './components/ErrorPage';
 import WatermarksChecker from './routes/WatermarksChecker';
 
