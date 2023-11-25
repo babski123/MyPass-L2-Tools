@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MyPass-L2-Tools/static/css/main.ce78599b.css",
-    "main.js": "/MyPass-L2-Tools/static/js/main.f2f64145.js",
+    "main.css": "/MyPass-L2-Tools/static/css/main.9592d447.css",
+    "main.js": "/MyPass-L2-Tools/static/js/main.c0c07626.js",
     "static/js/787.32942f1e.chunk.js": "/MyPass-L2-Tools/static/js/787.32942f1e.chunk.js",
     "static/media/rubik-latin-400-normal.woff": "/MyPass-L2-Tools/static/media/rubik-latin-400-normal.bca4b94f17366659cc98.woff",
     "static/media/rubik-latin-400-normal.woff2": "/MyPass-L2-Tools/static/media/rubik-latin-400-normal.86197d6f93b1eea220d0.woff2",
@@ -14,12 +14,12 @@
     "static/media/rubik-cyrillic-ext-400-normal.woff2": "/MyPass-L2-Tools/static/media/rubik-cyrillic-ext-400-normal.6a73ffe6bf2a0db7c749.woff2",
     "static/media/rubik-hebrew-400-normal.woff2": "/MyPass-L2-Tools/static/media/rubik-hebrew-400-normal.e6ce96d313dcffab638f.woff2",
     "index.html": "/MyPass-L2-Tools/index.html",
-    "main.ce78599b.css.map": "/MyPass-L2-Tools/static/css/main.ce78599b.css.map",
-    "main.f2f64145.js.map": "/MyPass-L2-Tools/static/js/main.f2f64145.js.map",
+    "main.9592d447.css.map": "/MyPass-L2-Tools/static/css/main.9592d447.css.map",
+    "main.c0c07626.js.map": "/MyPass-L2-Tools/static/js/main.c0c07626.js.map",
     "787.32942f1e.chunk.js.map": "/MyPass-L2-Tools/static/js/787.32942f1e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce78599b.css",
-    "static/js/main.f2f64145.js"
+    "static/css/main.9592d447.css",
+    "static/js/main.c0c07626.js"
   ]
 }
