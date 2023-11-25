@@ -13,22 +13,20 @@ import {
 } from "react-router-dom";
 import ErrorPage from './components/ErrorPage';
 import WatermarksChecker from './routes/WatermarksChecker';
-import config from './config'
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <App />,
     errorElement: <ErrorPage />
   },
   {
-    path: config.rootURL,
-    element: <App />
-  },
-  {
-    path: config.rootURL + "/watermarks-check",
+    path: "/watermarks-check",
     element: <WatermarksChecker />
   }
-]);
+], {
+  basename: "/MyPass-L2-Tools"
+});
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);

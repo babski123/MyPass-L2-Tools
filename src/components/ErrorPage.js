@@ -1,10 +1,10 @@
-import { useRouteError } from "react-router-dom";
+import { useRouteError, useHref } from "react-router-dom";
 import { Box, Heading, Text, Button } from '@chakra-ui/react'
-import config from "../config";
 
 export default function NotFound() {
 
   const error = useRouteError();
+  const basename = useHref("/");
   console.error(error);
 
   return (
@@ -24,7 +24,7 @@ export default function NotFound() {
       </Text>
 
       <Button as="a"
-        href={config.rootURL}
+        href={basename}
         variant="solid">
         Home
       </Button>
