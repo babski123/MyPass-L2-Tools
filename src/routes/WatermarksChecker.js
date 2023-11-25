@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useToast, Link, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td } from '@chakra-ui/react';
+import { useToast, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
 function WatermarksChecker() {
@@ -80,7 +81,7 @@ function WatermarksChecker() {
     <Flex p="1em" minHeight={"100vh"} alignContent={"center"} justifyContent={"center"}>
       <Center flexDirection={"column"}>
         <Text as="b">
-          <Link href='/MyPass-L2-Tools'>HOME</Link>
+          <Link to="/">HOME</Link>
         </Text>
         <ColorModeSwitcher />
         <VStack marginBottom="1.5em" spacing={3}>

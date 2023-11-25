@@ -1,4 +1,5 @@
-import { Box, Flex, Text, Link } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const ClickableBox = ({ boxDetails }) => {
@@ -16,7 +17,7 @@ const ClickableBox = ({ boxDetails }) => {
         >
             <Box textAlign="center">
                 <Text as="b">
-                    <Link color="blue.500" href={boxDetails.link}>{boxDetails.linkText}</Link>
+                    <Link color="blue.500" to={boxDetails.link}>{boxDetails.linkText}</Link>
                 </Text>
                 <Text marginTop="0.2em" color="gray.500" fontSize="xs">{boxDetails.linkDesc}</Text>
             </Box>

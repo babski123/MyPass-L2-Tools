@@ -1,10 +1,9 @@
-import { useRouteError, useHref } from "react-router-dom";
-import { Box, Heading, Text, Button } from '@chakra-ui/react'
+import { useRouteError, Link } from "react-router-dom";
+import { Box, Heading, Text } from '@chakra-ui/react'
 
 export default function NotFound() {
 
   const error = useRouteError();
-  const basename = useHref("/");
   console.error(error);
 
   return (
@@ -23,11 +22,11 @@ export default function NotFound() {
         Sorry, an unexpected error has occurred.
       </Text>
 
-      <Button as="a"
-        href={basename}
+      <Link as="a"
+        to="/"
         variant="solid">
         Home
-      </Button>
+      </Link>
     </Box>
   )
 }
