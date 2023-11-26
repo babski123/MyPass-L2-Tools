@@ -10,6 +10,7 @@ import theme from './theme';
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from './components/ErrorPage';
 import WatermarksChecker from './routes/WatermarksChecker';
+import Check204Bookings from './routes/Check204Bookings';
 
 const router = createHashRouter([
   {
@@ -20,6 +21,10 @@ const router = createHashRouter([
   {
     path: "/watermarks-check",
     element: <WatermarksChecker />
+  },
+  {
+    path: "/bookings-check",
+    element: <Check204Bookings />
   }
 ]);
 
