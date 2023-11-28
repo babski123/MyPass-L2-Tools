@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useToast, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td } from '@chakra-ui/react';
+import { useToast, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td, TableCaption } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
@@ -46,10 +46,6 @@ function Check204Bookings() {
       });
 
       setBookings(tableData);
-      console.log(tableData);
-      // Display the table
-      console.table(tableData);
-
     }
   }
 
@@ -95,34 +91,66 @@ function Check204Bookings() {
           {
             bookings.length > 0
             &&
-            <TableContainer>
-              <Table variant="simple" size="sm">
-                <Thead>
-                  <Tr>
-                    <Th><Text align="center">Worker ID</Text></Th>
-                    <Th><Text align="center">Status</Text></Th>
-                    <Th><Text align="center">Is LMS ID?</Text></Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {
-                    bookings.map(item => (
-                      <Tr key={item.workerID} _hover={{ backgroundColor: 'gray.300' }}>
-                        <Td><Text fontSize="xs" align="center">{item.workerID}</Text></Td>
-                        <Td><Text color={(item.status === "200") ? "green" : "red"} fontSize="xs" align="center">{item.status}</Text></Td>
-                        <Td>
-                          <Text fontSize="xs" align="center">
-                            {
-                              (isMyPassID(item.workerID)) ? "No" : "Yes"
-                            }
-                          </Text>
-                        </Td>
-                      </Tr>
-                    ))
-                  }
-                </Tbody>
-              </Table>
-            </TableContainer>
+            <HStack spacing={10}>
+              <TableContainer>
+                <Table variant="simple" size="sm">
+                  <TableCaption placement="top">200 Status</TableCaption>
+                  <Thead>
+                    <Tr>
+                      <Th><Text align="center">Worker ID</Text></Th>
+                      <Th><Text align="center">Status</Text></Th>
+                      <Th><Text align="center">Is LMS ID?</Text></Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {
+                      bookings.map(item => (
+                        <Tr key={item.workerID} _hover={{ backgroundColor: 'gray.300' }}>
+                          <Td><Text fontSize="xs" align="center">{item.workerID}</Text></Td>
+                          <Td><Text color={(item.status === "200") ? "green" : "red"} fontSize="xs" align="center">{item.status}</Text></Td>
+                          <Td>
+                            <Text fontSize="xs" align="center">
+                              {
+                                (isMyPassID(item.workerID)) ? "No" : "Yes"
+                              }
+                            </Text>
+                          </Td>
+                        </Tr>
+                      ))
+                    }
+                  </Tbody>
+                </Table>
+              </TableContainer>
+              <TableContainer>
+                <Table variant="simple" size="sm">
+                  <TableCaption placement="top">204 Status</TableCaption>
+                  <Thead>
+                    <Tr>
+                      <Th><Text align="center">Worker ID</Text></Th>
+                      <Th><Text align="center">Status</Text></Th>
+                      <Th><Text align="center">Is LMS ID?</Text></Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {
+                      bookings.map(item => (
+                        <Tr key={item.workerID} _hover={{ backgroundColor: 'gray.300' }}>
+                          <Td><Text fontSize="xs" align="center">{item.workerID}</Text></Td>
+                          <Td><Text color={(item.status === "200") ? "green" : "red"} fontSize="xs" align="center">{item.status}</Text></Td>
+                          <Td>
+                            <Text fontSize="xs" align="center">
+                              {
+                                (isMyPassID(item.workerID)) ? "No" : "Yes"
+                              }
+                            </Text>
+                          </Td>
+                        </Tr>
+                      ))
+                    }
+                  </Tbody>
+                </Table>
+              </TableContainer>
+            </HStack>
           }
         </VStack>
       </Center>
