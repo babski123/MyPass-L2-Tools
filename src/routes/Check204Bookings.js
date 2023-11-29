@@ -6,7 +6,9 @@ import { ColorModeSwitcher } from '../ColorModeSwitcher';
 function Check204Bookings() {
 
   const [textAreaValue, setTextAreaValue] = useState("");
-  const [bookings, setBookings] = useState([]);
+  const [bookings200, setBookings200] = useState([]);
+  const [bookings204Valid, setBookings204Valid] = useState([]);
+  const [bookings204Invalid, setBookings204Invalid] = useState([]);
   const toaster = useToast();
 
   const handleTextAreaChange = (event) => {
@@ -35,23 +37,49 @@ function Check204Bookings() {
 
       let JSONdata = JSON.parse(textAreaValue);
       const hits = JSONdata.hits.hits;
-      const tableData = hits.map(item => {
+      const tableBookings200 = hits.map(item => {
         const workerID = item._source.path.split('/booking/')[1]; // Extract Worker ID
         const status = item._source.status; // Get Status
-
-        return {
-          workerID,
-          status
-        };
+        if (status === "200") {
+          return {
+            workerID,
+            status
+          }
+        }
       });
 
-      setBookings(tableData);
+      const tableBookings204Valid = hits.map(item => {
+        const workerID = item._source.path.split('/booking/')[1]; // Extract Worker ID
+        const status = item._source.status; // Get Status
+        if (status === "204" && isMyPassID(workerID) === true) {
+          return {
+            workerID,
+            status
+          }
+        }
+      });
+
+      const tableBookings204Invalid = hits.map(item => {
+        const workerID = item._source.path.split('/booking/')[1]; // Extract Worker ID
+        const status = item._source.status; // Get Status
+        if (status === "204" && isMyPassID(workerID) === false) {
+          return {
+            workerID,
+            status
+          }
+        }
+      });
+
+      setBookings200(tableBookings200);
+      setBookings204Valid(tableBookings204Valid);
+      setBookings204Invalid(tableBookings204Invalid);
+
     }
   }
 
   const handleClear = () => {
     setTextAreaValue("");
-    setBookings([]);
+    setBookings200([]);
   }
 
   const validateJSON = (str) => {
@@ -89,7 +117,7 @@ function Check204Bookings() {
             <Button onClick={handleSubmit}>Submit</Button>
           </HStack>
           {
-            bookings.length > 0
+            bookings200.length > 0
             &&
             <HStack spacing={10}>
               <TableContainer>
@@ -104,7 +132,7 @@ function Check204Bookings() {
                   </Thead>
                   <Tbody>
                     {
-                      bookings.map(item => (
+                      bookings200.map(item => (
                         <Tr key={item.workerID} _hover={{ backgroundColor: 'gray.300' }}>
                           <Td><Text fontSize="xs" align="center">{item.workerID}</Text></Td>
                           <Td><Text color={(item.status === "200") ? "green" : "red"} fontSize="xs" align="center">{item.status}</Text></Td>
@@ -133,7 +161,7 @@ function Check204Bookings() {
                   </Thead>
                   <Tbody>
                     {
-                      bookings.map(item => (
+                      bookings200.map(item => (
                         <Tr key={item.workerID} _hover={{ backgroundColor: 'gray.300' }}>
                           <Td><Text fontSize="xs" align="center">{item.workerID}</Text></Td>
                           <Td><Text color={(item.status === "200") ? "green" : "red"} fontSize="xs" align="center">{item.status}</Text></Td>
