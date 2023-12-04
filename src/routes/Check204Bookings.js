@@ -37,6 +37,7 @@ function Check204Bookings() {
 
       let JSONdata = JSON.parse(textAreaValue);
       const hits = JSONdata.hits.hits;
+
       const tableBookings200 = hits.map(item => {
         const workerID = item._source.path.split('/booking/')[1]; // Extract Worker ID
         const status = item._source.status; // Get Status
@@ -45,8 +46,12 @@ function Check204Bookings() {
             workerID,
             status
           }
+        } else {
+          return null
         }
       });
+
+      setBookings200(tableBookings200);
 
       const tableBookings204Valid = hits.map(item => {
         const workerID = item._source.path.split('/booking/')[1]; // Extract Worker ID
@@ -56,8 +61,12 @@ function Check204Bookings() {
             workerID,
             status
           }
+        } else {
+          return null
         }
       });
+
+      setBookings204Valid(tableBookings204Valid);
 
       const tableBookings204Invalid = hits.map(item => {
         const workerID = item._source.path.split('/booking/')[1]; // Extract Worker ID
@@ -67,11 +76,11 @@ function Check204Bookings() {
             workerID,
             status
           }
+        } else {
+          return null
         }
       });
 
-      setBookings200(tableBookings200);
-      setBookings204Valid(tableBookings204Valid);
       setBookings204Invalid(tableBookings204Invalid);
 
     }
@@ -151,7 +160,7 @@ function Check204Bookings() {
               </TableContainer>
               <TableContainer>
                 <Table variant="simple" size="sm">
-                  <TableCaption placement="top">204 Status</TableCaption>
+                  <TableCaption placement="top">204 Status (Valid MyPass IDs)</TableCaption>
                   <Thead>
                     <Tr>
                       <Th><Text align="center">Worker ID</Text></Th>
@@ -161,7 +170,36 @@ function Check204Bookings() {
                   </Thead>
                   <Tbody>
                     {
-                      bookings200.map(item => (
+                      bookings204Valid.map(item => (
+                        <Tr key={item.workerID} _hover={{ backgroundColor: 'gray.300' }}>
+                          <Td><Text fontSize="xs" align="center">{item.workerID}</Text></Td>
+                          <Td><Text color={(item.status === "200") ? "green" : "red"} fontSize="xs" align="center">{item.status}</Text></Td>
+                          <Td>
+                            <Text fontSize="xs" align="center">
+                              {
+                                (isMyPassID(item.workerID)) ? "No" : "Yes"
+                              }
+                            </Text>
+                          </Td>
+                        </Tr>
+                      ))
+                    }
+                  </Tbody>
+                </Table>
+              </TableContainer>
+              <TableContainer>
+                <Table variant="simple" size="sm">
+                  <TableCaption placement="top">204 Status (Invalid MyPass IDs)</TableCaption>
+                  <Thead>
+                    <Tr>
+                      <Th><Text align="center">Worker ID</Text></Th>
+                      <Th><Text align="center">Status</Text></Th>
+                      <Th><Text align="center">Is LMS ID?</Text></Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {
+                      bookings204Invalid.map(item => (
                         <Tr key={item.workerID} _hover={{ backgroundColor: 'gray.300' }}>
                           <Td><Text fontSize="xs" align="center">{item.workerID}</Text></Td>
                           <Td><Text color={(item.status === "200") ? "green" : "red"} fontSize="xs" align="center">{item.status}</Text></Td>
