@@ -124,10 +124,10 @@ function Check204Bookings() {
             <Button onClick={handleClear}>Clear</Button>
             <Button onClick={handleSubmit}>Submit</Button>
           </HStack>
-          {
-            bookings200.length > 0
-            &&
-            <HStack align="flex-start" spacing={10}>
+          <HStack align="flex-start" spacing={10}>
+            {
+              bookings200.length > 0
+              &&
               <TableContainer>
                 <Table variant="simple" size="sm">
                   <TableCaption placement="top">200 Status - <b>{bookings200.length} count(s)</b></TableCaption>
@@ -157,6 +157,10 @@ function Check204Bookings() {
                   </Tbody>
                 </Table>
               </TableContainer>
+            }
+            {
+              bookings204Valid.length > 0
+              &&
               <TableContainer>
                 <Table variant="simple" size="sm">
                   <TableCaption placement="top">Valid MyPass IDs with 204 Status - <b>{bookings204Valid.length} count(s)</b></TableCaption>
@@ -186,6 +190,10 @@ function Check204Bookings() {
                   </Tbody>
                 </Table>
               </TableContainer>
+            }
+            {
+              bookings204Invalid.length > 0
+              &&
               <TableContainer>
                 <Table variant="simple" size="sm">
                   <TableCaption placement="top">Invalid MyPass IDs with 204 Status - <b>{bookings204Invalid.length} count(s)</b></TableCaption>
@@ -215,8 +223,8 @@ function Check204Bookings() {
                   </Tbody>
                 </Table>
               </TableContainer>
-            </HStack>
-          }
+            }
+          </HStack>
         </VStack>
       </Center>
     </Flex>
