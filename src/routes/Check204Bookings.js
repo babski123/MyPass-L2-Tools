@@ -91,6 +91,7 @@ function Check204Bookings() {
     setBookings200([]);
     setBookings204Valid([]);
     setBookings204Invalid([]);
+    setTotalBookings(0);
   }
 
   const validateJSON = (str) => {
