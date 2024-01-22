@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useToast, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td, TableCaption } from '@chakra-ui/react';
+import { useToast, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td, TableCaption, Alert, AlertIcon } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
 function Check204Bookings() {
 
   const [textAreaValue, setTextAreaValue] = useState("");
+  const [totalBookings, setTotalBookings] = useState(0);
   const [bookings200, setBookings200] = useState([]);
   const [bookings204Valid, setBookings204Valid] = useState([]);
   const [bookings204Invalid, setBookings204Invalid] = useState([]);
@@ -37,6 +38,8 @@ function Check204Bookings() {
 
       let JSONdata = JSON.parse(textAreaValue);
       const hits = JSONdata.hits.hits;
+
+      setTotalBookings(hits.length);
 
       let tableBookings200 = [];
       hits.forEach(item => {
@@ -124,6 +127,17 @@ function Check204Bookings() {
             <Button onClick={handleClear}>Clear</Button>
             <Button onClick={handleSubmit}>Submit</Button>
           </HStack>
+          {
+            totalBookings > 0
+            &&
+            <Alert status='info'
+              alignItems='center'
+              justifyContent='center'
+              textAlign='center'>
+              <AlertIcon />
+              Got a total of {totalBookings} bookings with {bookings204Invalid.length} returned 204 error due to LMS ID
+            </Alert>
+          }
           <HStack align="flex-start" spacing={10}>
             {
               bookings200.length > 0
