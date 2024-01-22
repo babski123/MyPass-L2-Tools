@@ -135,7 +135,7 @@ function Check204Bookings() {
               justifyContent='center'
               textAlign='center'>
               <AlertIcon />
-              Got a total of {totalBookings} bookings with {bookings204Invalid.length} returned 204 error due to LMS ID
+              Got a total of {totalBookings} bookings with {bookings204Invalid.length} counts returned 204 error due to LMS ID
             </Alert>
           }
           <HStack align="flex-start" spacing={10}>
