@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useToast, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td } from '@chakra-ui/react';
+import { useToast, Center, Heading, Flex, VStack, Textarea, Button, Text, HStack, TableContainer, Table, Thead, Tr, Th, Tbody, Td, Alert, AlertIcon } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
@@ -7,6 +7,7 @@ function WatermarksChecker() {
 
   const [textAreaValue, setTextAreaValue] = useState("");
   const [watermarkRepetitions, setWatermarkRepetitions] = useState({});
+  const [isIssue, setIsIssue] = useState(false);
   const toaster = useToast();
 
   const handleTextAreaChange = (event) => {
@@ -48,8 +49,14 @@ function WatermarksChecker() {
           const watermarkValue = watermarkParam.split('=')[1];
           if (statusCode === '200') {
             occurrences200[watermarkValue] = (occurrences200[watermarkValue] || 0) + 1;
+            if (occurrences200[watermarkValue] > 3) {
+              setIsIssue(true);
+            }
           } else if (statusCode === '499') {
             occurrences499[watermarkValue] = (occurrences499[watermarkValue] || 0) + 1;
+            if (occurrences499[watermarkValue] > 3) {
+              setIsIssue(true);
+            }
           }
         }
       });
@@ -96,6 +103,26 @@ function WatermarksChecker() {
             <Button onClick={handleClear}>Clear</Button>
             <Button onClick={handleSubmit}>Submit</Button>
           </HStack>
+          {
+            Object.keys(watermarkRepetitions).length > 0
+            &&
+            ((isIssue) ?
+              <Alert status='error'
+                alignItems='center'
+                justifyContent='center'
+                textAlign='center'>
+                <AlertIcon />
+                An issue has been detected in profile-sync
+              </Alert>
+              :
+              <Alert status='success'
+                alignItems='center'
+                justifyContent='center'
+                textAlign='center'>
+                <AlertIcon />
+                No issue found in profile-sync
+              </Alert>)
+          }
           {
             Object.keys(watermarkRepetitions).length > 0
             &&
